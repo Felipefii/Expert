@@ -9,25 +9,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.softexpert.api.entities.Pessoa;
+import com.softexpert.api.entities.Conta;
 import com.softexpert.api.exceptions.errors.HomeNotFoundException;
-import com.softexpert.api.services.PessoaService;
+import com.softexpert.api.services.ContaService;
 
 @RestController
-@RequestMapping("/pessoas")
-public class PessoaController {
-
-	@Autowired
-	PessoaService pessoaService;
+@RequestMapping("/contas")
+public class ContaController {
 	
+	@Autowired
+	ContaService contaService;
 	
 	@GetMapping
-	public ResponseEntity<List<Pessoa>> getAll(){
+	public ResponseEntity<List<Conta>> getAll(){
 		
-		List<Pessoa> pessoas = pessoaService.getAll();
-		if(pessoas.isEmpty()) throw new HomeNotFoundException("Nenhuma pessoa foi encontrada");
+		List<Conta> contas = contaService.getAll();
+		if(contas.isEmpty()) throw new HomeNotFoundException("Nenhuma conta encontrada");
 		
-		return new ResponseEntity<List<Pessoa>>(pessoas, HttpStatus.OK);
+		return new ResponseEntity<List<Conta>>(contas, HttpStatus.OK);
 	}
 	
 }
