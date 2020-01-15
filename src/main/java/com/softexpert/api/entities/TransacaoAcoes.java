@@ -9,7 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.softexpert.api.entities.enums.TipoTransacaoAcoesEnum;
@@ -23,7 +24,8 @@ public class TransacaoAcoes {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany(mappedBy = "conta")
+	@ManyToOne
+	@JoinColumn(name="conta", referencedColumnName = "id")
 	private Conta conta;
 	
 	@Enumerated(EnumType.STRING)

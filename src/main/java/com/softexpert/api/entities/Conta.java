@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,10 +20,10 @@ public class Conta {
 	@OneToOne
 	private Pessoa pessoa;
 	
-	@ManyToOne
+	@OneToMany(mappedBy = "conta")
 	private List<TransacaoAcoes> transacoesAcoes;
 	
-	@ManyToOne
+	@OneToMany(mappedBy = "conta")
 	private List<TransacaoConta> transacoesConta;
 	
 	private Double saldo;
