@@ -7,4 +7,6 @@ import com.softexpert.api.entities.Pessoa;
 public interface PessoaService {
 
 	List<Pessoa> getAll();
+	
+	Pessoa insert(Pessoa pessoa);
 }

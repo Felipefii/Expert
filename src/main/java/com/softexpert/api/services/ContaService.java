@@ -6,6 +6,8 @@ import com.softexpert.api.entities.Conta;
 
 public interface ContaService {
 
-	List<Conta> getAll(); 
+	List<Conta> getAll();
+	
+	Conta insert(Conta conta);
 	
 }

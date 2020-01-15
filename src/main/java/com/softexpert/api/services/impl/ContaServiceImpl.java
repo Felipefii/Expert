@@ -20,5 +20,11 @@ public class ContaServiceImpl implements ContaService{
 		
 		return contaRepository.findAll();
 	}
+
+	@Override
+	public Conta insert(Conta conta) {
+		
+		return contaRepository.saveAndFlush(conta);
+	}
 	
 }

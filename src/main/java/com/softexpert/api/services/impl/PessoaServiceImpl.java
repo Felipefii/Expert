@@ -21,4 +21,10 @@ public class PessoaServiceImpl implements PessoaService {
 		return pessoaRepository.findAll();
 	}
 
+	@Override
+	public Pessoa insert(Pessoa pessoa) {
+		
+		return pessoaRepository.saveAndFlush(pessoa);
+	}
+
 }
