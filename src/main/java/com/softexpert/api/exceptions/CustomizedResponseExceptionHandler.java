@@ -23,7 +23,7 @@ public class CustomizedResponseExceptionHandler extends ResponseEntityExceptionH
 	}
 	
 	@ExceptionHandler(HomeBadRequestException.class)
-	public final ResponseEntity<ErrorComposer> handleHomeBadRequest(HomeNotFoundException exception, WebRequest request){
+	public final ResponseEntity<ErrorComposer> handleHomeBadRequest(HomeBadRequestException exception, WebRequest request){
 		ErrorComposer error = new ErrorComposer(new Date(), exception.getMessage(), request.getDescription(false));
 		
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);

@@ -1,6 +1,7 @@
 package com.softexpert.api.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,12 @@ public class PessoaServiceImpl implements PessoaService {
 	public Pessoa insert(Pessoa pessoa) {
 		
 		return pessoaRepository.saveAndFlush(pessoa);
+	}
+
+	@Override
+	public Optional<Pessoa> getOne(Long id) {
+		
+		return pessoaRepository.findById(id);
 	}
 
 }

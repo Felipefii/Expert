@@ -1,6 +1,7 @@
 package com.softexpert.api.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,12 @@ public class ContaServiceImpl implements ContaService{
 	public Conta insert(Conta conta) {
 		
 		return contaRepository.saveAndFlush(conta);
+	}
+
+	@Override
+	public Optional<Conta> getOne(Long id) {
+		
+		return contaRepository.findById(id);
 	}
 	
 }

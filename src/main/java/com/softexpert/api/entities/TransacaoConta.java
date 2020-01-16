@@ -1,6 +1,7 @@
 package com.softexpert.api.entities;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softexpert.api.entities.enums.TipoTransacaoContaEnum;
 
 @Entity
@@ -24,6 +26,7 @@ public class TransacaoConta {
 	
 	@ManyToOne
 	@JoinColumn(name="conta", referencedColumnName = "id")
+	@JsonIgnore
 	private Conta conta;
 	
 	@Enumerated(EnumType.STRING)
