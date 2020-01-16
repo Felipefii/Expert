@@ -37,6 +37,8 @@ public class TransacaoConta {
 	private Date dataTransacao;
 	
 	private Double valor;
+	
+	private String moeda;
 
 	public TransacaoConta() {
 		super();
@@ -82,6 +84,14 @@ public class TransacaoConta {
 
 	public void setValor(Double valor) {
 		this.valor = valor;
+	}
+	
+	public String getMoeda() {
+		return moeda;
+	}
+
+	public void setMoeda(String moeda) {
+		this.moeda = moeda;
 	}
 
 	@Override
