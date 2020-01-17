@@ -2,6 +2,7 @@ package com.softexpert.api.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +34,15 @@ public class Conta {
 	private List<TransacaoConta> transacoesConta;
 	
 	private Double saldo;
+	
+	@Column(name = "margem")
+	private Integer margemTranscoes;	
+	
+	@Column(name = "valor_compra")
+	private Float valorCompra;
+	
+	@Column(name = "valor_venda")
+	private Float valorVenda;
 
 	public Conta() {
 		super();
@@ -76,6 +86,32 @@ public class Conta {
 
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
+	}
+	
+	
+
+	public Integer getMargemTranscoes() {
+		return margemTranscoes;
+	}
+
+	public void setMargemTranscoes(Integer margemTranscoes) {
+		this.margemTranscoes = margemTranscoes;
+	}	
+
+	public Float getValorCompra() {
+		return valorCompra;
+	}
+
+	public void setValorCompra(Float valorCompra) {
+		this.valorCompra = valorCompra;
+	}
+
+	public Float getValorVenda() {
+		return valorVenda;
+	}
+
+	public void setValorVenda(Float valorVenda) {
+		this.valorVenda = valorVenda;
 	}
 
 	@Override
