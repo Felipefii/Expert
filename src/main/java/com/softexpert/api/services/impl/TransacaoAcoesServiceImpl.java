@@ -19,4 +19,6 @@ public class TransacaoAcoesServiceImpl implements TransacaoAcoesService {
 		return transacaoAcoesRepository.saveAndFlush(transacao);
 	}
 	
+	
+	
 }

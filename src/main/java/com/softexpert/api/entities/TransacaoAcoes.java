@@ -36,7 +36,7 @@ public class TransacaoAcoes {
 	@Column(name="data_transacao")
 	private Date dataTransacao;
 	
-	private Double valor;
+	private Float valor;
 	
 	private Integer quantidade;
 
@@ -76,11 +76,11 @@ public class TransacaoAcoes {
 		this.dataTransacao = dataTransacao;
 	}
 
-	public Double getValor() {
+	public Float getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(Float valor) {
 		this.valor = valor;
 	}
 

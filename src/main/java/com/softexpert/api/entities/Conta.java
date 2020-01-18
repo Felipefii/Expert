@@ -43,6 +43,9 @@ public class Conta {
 	
 	@Column(name = "valor_venda")
 	private Float valorVenda;
+	
+	@Column(name = "qtde_acoes")
+	private Integer qtdeAcoes;
 
 	public Conta() {
 		super();
@@ -86,9 +89,7 @@ public class Conta {
 
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
-	}
-	
-	
+	}	
 
 	public Integer getMargemTranscoes() {
 		return margemTranscoes;
@@ -112,6 +113,14 @@ public class Conta {
 
 	public void setValorVenda(Float valorVenda) {
 		this.valorVenda = valorVenda;
+	}
+
+	public Integer getQtdeAcoes() {
+		return qtdeAcoes;
+	}
+
+	public void setQtdeAcoes(Integer qtdeAcoes) {
+		this.qtdeAcoes = qtdeAcoes;
 	}
 
 	@Override
