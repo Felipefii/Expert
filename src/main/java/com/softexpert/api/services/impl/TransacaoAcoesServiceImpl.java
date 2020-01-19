@@ -1,5 +1,7 @@
 package com.softexpert.api.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,12 @@ public class TransacaoAcoesServiceImpl implements TransacaoAcoesService {
 	public TransacaoAcoes insert(TransacaoAcoes transacao) {
 		
 		return transacaoAcoesRepository.saveAndFlush(transacao);
+	}
+
+	@Override
+	public List<TransacaoAcoes> getAll() {
+		
+		return transacaoAcoesRepository.findAll();
 	}
 	
 	

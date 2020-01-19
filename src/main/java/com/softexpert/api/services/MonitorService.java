@@ -53,7 +53,7 @@ public class MonitorService {
 			
 			monitoramentoService.insert(monitoramento);
 
-			for(int i = 0; i<3; i++) {
+			for(int i = 0; i<20; i++) {
 				
 				if(conta.getSaldo() == 0 || conta.getSaldo() == null) {
 					continue;
@@ -100,7 +100,8 @@ public class MonitorService {
 					transacao.setValor(valor);
 					transacao.setMonitoramento(monitoramento);
 					transacaoAcoesService.insert(transacao);
-					conta.setSaldo(gerarSaldo(conta.getQtdeAcoes(), valor, conta.getSaldo(), false));	
+					conta.setSaldo(gerarSaldo(conta.getQtdeAcoes(), valor, conta.getSaldo(), false));
+					conta.setQtdeAcoes(0);
 					contaService.insert(conta);
 					
 				}
