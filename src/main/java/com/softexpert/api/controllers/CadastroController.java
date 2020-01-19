@@ -26,14 +26,14 @@ public class CadastroController {
 	
 	@PostMapping	
 	public ResponseEntity<Pessoa> insertOne(@RequestBody Pessoa pessoa){
-			
-		Conta conta = new Conta();
-		conta.setSaldo(0D);
-		conta = contaService.insert(conta);
+		Conta conta = new Conta(); 
+		pessoa.getConta().setSaldo(0D);
+		pessoa.getConta().setQtdeAcoes(0);
+		conta = contaService.insert(pessoa.getConta());
 		
 		if(conta.equals(null)) throw new HomeBadRequestException("Erro ao criar nova conta.");
 		
-		pessoa.setConta(conta);
+		//pessoa.setConta(conta);
 		
 		pessoa = pessoaService.insert(pessoa);
 		

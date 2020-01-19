@@ -25,16 +25,16 @@ public class TransacaoAcoes {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="conta", referencedColumnName = "id")
-	private Conta conta;
-	
 	@Enumerated(EnumType.STRING)
 	@Column(name="tipo_transacao_acoes")
 	private TipoTransacaoAcoesEnum tipoTransacaoAcoesEnum;
 	
 	@Column(name="data_transacao")
 	private Date dataTransacao;
+	
+	@ManyToOne
+	@JoinColumn(name="monitoramento", referencedColumnName = "id")	
+	private Monitoramento monitoramento;
 	
 	private Float valor;
 	
@@ -50,14 +50,6 @@ public class TransacaoAcoes {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	public Conta getConta() {
-		return conta;
-	}
-
-	public void setConta(Conta conta) {
-		this.conta = conta;
 	}
 
 	public TipoTransacaoAcoesEnum getTipoTransacaoAcoesEnum() {
@@ -90,6 +82,16 @@ public class TransacaoAcoes {
 
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	
+	
+	public Monitoramento getMonitoramento() {
+		return monitoramento;
+	}
+
+	public void setMonitoramento(Monitoramento monitoramento) {
+		this.monitoramento = monitoramento;
 	}
 
 	@Override

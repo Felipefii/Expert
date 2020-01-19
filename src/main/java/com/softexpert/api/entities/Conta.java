@@ -28,7 +28,7 @@ public class Conta {
 	private Pessoa pessoa;
 	
 	@OneToMany(mappedBy = "conta")
-	private List<TransacaoAcoes> transacoesAcoes;
+	private List<Monitoramento> monitoramento;
 	
 	@OneToMany(mappedBy = "conta")
 	private List<TransacaoConta> transacoesConta;
@@ -36,7 +36,7 @@ public class Conta {
 	private Double saldo;
 	
 	@Column(name = "margem")
-	private Integer margemTranscoes;	
+	private Float margemTranscoes;	
 	
 	@Column(name = "valor_compra")
 	private Float valorCompra;
@@ -67,14 +67,6 @@ public class Conta {
 		this.pessoa = pessoa;
 	}
 
-	public List<TransacaoAcoes> getTransacoesAcoes() {
-		return transacoesAcoes;
-	}
-
-	public void setTransacoesAcoes(List<TransacaoAcoes> transacoesAcoes) {
-		this.transacoesAcoes = transacoesAcoes;
-	}
-
 	public List<TransacaoConta> getTransacoesConta() {
 		return transacoesConta;
 	}
@@ -91,13 +83,13 @@ public class Conta {
 		this.saldo = saldo;
 	}	
 
-	public Integer getMargemTranscoes() {
+	public Float getMargemTranscoes() {
 		return margemTranscoes;
 	}
 
-	public void setMargemTranscoes(Integer margemTranscoes) {
+	public void setMargemTranscoes(Float margemTranscoes) {
 		this.margemTranscoes = margemTranscoes;
-	}	
+	}
 
 	public Float getValorCompra() {
 		return valorCompra;
@@ -121,6 +113,14 @@ public class Conta {
 
 	public void setQtdeAcoes(Integer qtdeAcoes) {
 		this.qtdeAcoes = qtdeAcoes;
+	}
+	
+	public List<Monitoramento> getMonitoramento() {
+		return monitoramento;
+	}
+
+	public void setMonitoramento(List<Monitoramento> monitoramento) {
+		this.monitoramento = monitoramento;
 	}
 
 	@Override
