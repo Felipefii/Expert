@@ -1,5 +1,8 @@
 package com.softexpert.api.services.impl;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +26,12 @@ public class TransacaoContaServiceImpl implements TransacaoContaService{
 	public TransacaoConta sacar(TransacaoConta transacao) {
 		
 		return transacaoContaRepository.saveAndFlush(transacao);
+	}
+
+	@Override
+	public List<TransacaoConta> getAllBetween(Date start, Date end) {
+		
+		return transacaoContaRepository.findByDataTransacaoBetween(start, end);
 	}
 
 }

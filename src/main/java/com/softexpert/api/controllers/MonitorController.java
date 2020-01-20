@@ -1,10 +1,12 @@
 package com.softexpert.api.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +37,29 @@ public class MonitorController {
 	@GetMapping
 	public ResponseEntity<List<Monitoramento>> getAll() {
 		List<Monitoramento> monitoramentos = monitoramentoService.getAll();
-		if(monitoramentos.isEmpty()) throw new HomeNotFoundException("Empresas não foram encontradas");
+		if(monitoramentos.isEmpty()) throw new HomeNotFoundException("Empresas não foram encontradas.");
 		
 		return new ResponseEntity<List<Monitoramento>>(monitoramentos, HttpStatus.OK);
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Monitoramento> getOne(@PathVariable(value="id") Long id){
+
+		Optional<Monitoramento> monitoramento = monitoramentoService.getOne(id);
+		if(!monitoramento.isPresent()) throw new HomeNotFoundException("Não foi encontrado um monitoramento.");
+		
+		return new ResponseEntity<Monitoramento>(monitoramento.get(), HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> deleteOne(@PathVariable(value="id") Long id){
+
+		Optional<Monitoramento> monitoramento = monitoramentoService.getOne(id);
+		if(!monitoramento.isPresent()) throw new HomeNotFoundException("Não foi encontrado um monitoramento para deletar.");
+		
+		monitoramentoService.deleteOne(id);
+		
+		return new ResponseEntity<String>("Monitoramento deletado com sucesso", HttpStatus.OK);
+	}
+	
 }

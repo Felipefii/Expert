@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.softexpert.api.entities.Monitoramento;
 import com.softexpert.api.exceptions.errors.HomeNotFoundException;
 import com.softexpert.api.repositories.MonitoramentoRepository;
+import com.softexpert.api.repositories.TransacaoAcoesRepository;
 import com.softexpert.api.services.MonitoramentoService;
 
 @Service
@@ -16,6 +17,9 @@ public class MonitoramentoServiceImpl implements MonitoramentoService{
 
 	@Autowired
 	MonitoramentoRepository monitoramentoRepository;
+	
+	@Autowired
+	TransacaoAcoesRepository transacaoAcoesRepository;
 	
 	@Override
 	public Monitoramento insert(Monitoramento monitoramento) {
@@ -41,5 +45,6 @@ public class MonitoramentoServiceImpl implements MonitoramentoService{
 		if(!monitoramento.isPresent()) throw new HomeNotFoundException("Não foi encontrado monitoramento para excluir");
 		monitoramentoRepository.delete(monitoramento.get());
 	}
+
 	
 }
