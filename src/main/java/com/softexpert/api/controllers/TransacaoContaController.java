@@ -30,6 +30,19 @@ public class TransacaoContaController {
 	@Autowired
 	ContaService contaService;
 	
+	/**
+	 * Metodo utilizado para emitir um novo depósito
+	 *  
+	 * 
+	 * pode ser acessado por meio do link
+	 * http://localhost:8080/transacao
+	 * 
+	 * @author Felipe Nazário 
+	 * 
+	 * @return retorna transação de depósito efetuada
+	 * 
+	 */
+	
 	@PostMapping("/deposito/{id}")
 	public ResponseEntity<TransacaoConta> depositar(@RequestBody TransacaoConta tConta, @PathVariable(value="id") Long id) {
 		
@@ -66,6 +79,19 @@ public class TransacaoContaController {
 		
 		return new ResponseEntity<TransacaoConta>(transConta, HttpStatus.CREATED);
 	}
+	
+	/**
+	 * Metodo utilizado para emitir um novo saque
+	 *  
+	 * 
+	 * pode ser acessado por meio do link
+	 * http://localhost:8080/transacao
+	 * 
+	 * @author Felipe Nazário 
+	 * 
+	 * @return retorna saque efetuado
+	 * 
+	 */
 	
 	@PostMapping("/saque/{id}")
 	public ResponseEntity<TransacaoConta> sacar(@RequestBody TransacaoConta tConta, @PathVariable(value="id") Long id){

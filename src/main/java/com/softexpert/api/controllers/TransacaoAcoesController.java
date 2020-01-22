@@ -20,6 +20,18 @@ public class TransacaoAcoesController {
 	@Autowired
 	TransacaoAcoesService transacaoAcoesService;
 	
+	/**
+	 * Metodo utilizado para retornar todas as transações efetuadas sobre as ações 
+	 *  
+	 * 
+	 * pode ser acessado por meio do link
+	 * http://localhost:8080/acoes
+	 * 
+	 * @author Felipe Nazário 
+	 * 
+	 * @return retorna todas as transações
+	 * 
+	 */
 	
 	@GetMapping
 	public ResponseEntity<List<TransacaoAcoes>> getAll(){

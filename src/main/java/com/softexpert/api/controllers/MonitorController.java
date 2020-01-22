@@ -27,6 +27,19 @@ public class MonitorController {
 	@Autowired
 	MonitoramentoService monitoramentoService;
 	
+	/**
+	 * Metodo utilizado para inserir um novo monitoramento
+	 * 
+	 * 
+	 * pode ser acessado por meio do link
+	 * http://localhost:8080/monitor
+	 * 
+	 * @author Felipe Nazário 
+	 * 
+	 * @return retorna void
+	 * 
+	 */
+	
 	@GetMapping("/{id_conta}/{id_empresa}")
 	public void monitorar(@PathVariable(value="id_conta") Long idConta, @PathVariable(value="id_empresa") Long idEmpresa) {
 		
@@ -34,6 +47,18 @@ public class MonitorController {
 		
 	}
 	
+	/**
+	 * Metodo utilizado para retornar dados de monitoramentos efetuados
+	 * 
+	 * 
+	 * pode ser acessado por meio do link
+	 * http://localhost:8080/monitor
+	 * 
+	 * @author Felipe Nazário 
+	 * 
+	 * @return retorna todos os monitoramentos
+	 * 
+	 */
 	@GetMapping
 	public ResponseEntity<List<Monitoramento>> getAll() {
 		List<Monitoramento> monitoramentos = monitoramentoService.getAll();
@@ -41,6 +66,19 @@ public class MonitorController {
 		
 		return new ResponseEntity<List<Monitoramento>>(monitoramentos, HttpStatus.OK);
 	}
+	
+	/**
+	 * Metodo utilizado para retornar dados de um monitoramento específico
+	 * 
+	 * 
+	 * pode ser acessado por meio do link
+	 * http://localhost:8080/monitor
+	 * 
+	 * @author Felipe Nazário 
+	 * 
+	 * @return retorna monitoramento
+	 * 
+	 */
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Monitoramento> getOne(@PathVariable(value="id") Long id){
@@ -50,6 +88,20 @@ public class MonitorController {
 		
 		return new ResponseEntity<Monitoramento>(monitoramento.get(), HttpStatus.OK);
 	}
+	
+	
+	/**
+	 * Metodo utilizado para deletar monitoramento específico
+	 *  
+	 * 
+	 * pode ser acessado por meio do link
+	 * http://localhost:8080/monitor
+	 * 
+	 * @author Felipe Nazário 
+	 * 
+	 * @return monitoramento deletado
+	 * 
+	 */
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteOne(@PathVariable(value="id") Long id){

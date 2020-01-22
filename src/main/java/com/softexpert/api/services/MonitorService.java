@@ -79,7 +79,7 @@ public class MonitorService {
 			monitoramentoService.insert(monitoramento);
 			this.start = new Date();
 			
-			for(int i = 0; i<20; i++) {
+			for(int i = 0; i<100; i++) {
 				
 				if(conta.getSaldo() == 0 || conta.getSaldo() == null) {
 					continue;
@@ -193,16 +193,23 @@ public class MonitorService {
 			List<TransacaoConta> transacoesContas = transacaoContaService.getAllBetween(this.start, this.end);
 			
 			
-			printStream.println("----------------------------------------------------------------------");
+			printStream.println("--------------------MONITORAMENTO-------------------------------------");
 			printStream.println("Monitoramento feito sobre a conta: " + conta.getPessoa().getEmail());
 			printStream.println("Empresa monitorada: " + monitoramento.getEmpresa().getNome());
 			printStream.println("----------------------------------------------------------------------");
-
+			
+			printStream.println();
 			printStream.println();
 			
-			printStream.println("Margem de transação permitida: " + conta.getMargemTranscoes());
+			printStream.println("-------------------------CONTA----------------------------------------");
+			printStream.println("Quantidade de ações remanescentes: " + conta.getQtdeAcoes());
+			printStream.println("Margem de transações: " + conta.getMargemTranscoes());
+			printStream.println("Valor especificado para compra: " + conta.getValorCompra());
+			printStream.println("Valor especificado para venda: " + conta.getValorVenda());
 			printStream.println("Saldo final: " + conta.getSaldo());
-
+			printStream.println("----------------------------------------------------------------------");
+			
+			printStream.println();
 			printStream.println();
 			
 			printStream.println("----------------------------------------------------------------------");
@@ -221,8 +228,7 @@ public class MonitorService {
 			printStream.println();
 			printStream.println("Vendas feitas no período de 100 iterações");
 			printStream.println();
-			
-			
+				
 			for(TransacaoAcoes venda: vendas) {
 				printStream.println("----------------------------------------------------------------------");
 				printStream.println("Id: " + venda.getId());
@@ -236,6 +242,9 @@ public class MonitorService {
 			printStream.println();
 			printStream.println("----------------------------------------------------------------------");
 			printStream.println("Depósitos e saques emitidos no intervalo das iterações");
+			
+			if(transacoesContas.isEmpty() || transacoesContas.equals(null)) printStream.println("Não foram feitas depósitos ou vendas durante o intervalo de monitoramento");
+			
 			for(TransacaoConta trans : transacoesContas) {
 				printStream.println("----------------------------------------------------------------------");
 				printStream.println("Data" + trans.getDataTransacao());	
