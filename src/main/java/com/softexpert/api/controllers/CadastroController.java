@@ -33,8 +33,6 @@ public class CadastroController {
 		
 		if(conta.equals(null)) throw new HomeBadRequestException("Erro ao criar nova conta.");
 		
-		//pessoa.setConta(conta);
-		
 		pessoa = pessoaService.insert(pessoa);
 		
 		if(pessoa.equals(null)) throw new HomeBadRequestException("Erro ao cadastrar pessoa");

@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "tb_monitoramento")
@@ -21,11 +22,13 @@ public class Monitoramento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "empresa", referencedColumnName = "id")
 	private Empresa empresa;
 	
+	@NotNull
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="conta", referencedColumnName = "id")	

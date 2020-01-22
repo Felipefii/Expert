@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name="tb_conta")
@@ -35,12 +36,15 @@ public class Conta {
 	
 	private Double saldo;
 	
+	@NotNull
 	@Column(name = "margem")
 	private Float margemTranscoes;	
 	
+	@NotNull
 	@Column(name = "valor_compra")
 	private Float valorCompra;
 	
+	@NotNull
 	@Column(name = "valor_venda")
 	private Float valorVenda;
 	
