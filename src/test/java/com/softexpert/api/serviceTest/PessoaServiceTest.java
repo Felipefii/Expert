@@ -29,6 +29,7 @@ class PessoaServiceTest {
 		Pessoa pessoa = new Pessoa();
 		Pessoa pessoa2 = new Pessoa();
 		pessoa.setEmail("email@email.com");
+		pessoa2.setEmail("email2@email.com");
 		pessoaService.insert(pessoa);
 		pessoaService.insert(pessoa2);
 		

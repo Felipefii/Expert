@@ -264,8 +264,7 @@ public class MonitorService {
 	
 	public void sendMail(Conta conta, String fileName) {
 
-		/* String to = conta.getPessoa().getEmail(); */
-		String to = "nazario@alunos.utfpr.edu.br";
+		String to = conta.getPessoa().getEmail();
 		String from = "nazario@alunos.utfpr.edu.br";
 		String host = "smtp.gmail.com";
 		String filename = fileName;
@@ -286,7 +285,7 @@ public class MonitorService {
 			           protected PasswordAuthentication getPasswordAuthentication() 
 			           {
 			                 return new PasswordAuthentication("nazario@alunos.utfpr.edu.br", 
-			                 "tgsnzs70");
+			                 "xxxxxxxxxx");
 			           }
 			      });
 
